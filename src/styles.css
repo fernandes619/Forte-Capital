@@ -1,0 +1,116 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-cyan-bright: var(--cyan-bright);
+  --color-cyan-glow: var(--cyan-glow);
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Forte palette */
+  --navy-deep: oklch(0.18 0.08 260);      /* #001233 */
+  --navy: oklch(0.24 0.10 260);
+  --navy-light: oklch(0.32 0.10 258);
+  --cyan-bright: oklch(0.65 0.20 250);    /* #007BFF */
+  --cyan-glow: oklch(0.78 0.18 235);
+
+  --background: oklch(0.18 0.08 260);
+  --foreground: oklch(0.98 0.005 240);
+  --card: oklch(0.22 0.09 260);
+  --card-foreground: oklch(0.98 0.005 240);
+  --popover: oklch(0.22 0.09 260);
+  --popover-foreground: oklch(0.98 0.005 240);
+  --primary: oklch(0.65 0.20 250);
+  --primary-foreground: oklch(0.98 0.005 240);
+  --secondary: oklch(0.28 0.08 260);
+  --secondary-foreground: oklch(0.98 0.005 240);
+  --muted: oklch(0.26 0.06 260);
+  --muted-foreground: oklch(0.72 0.03 250);
+  --accent: oklch(0.65 0.20 250);
+  --accent-foreground: oklch(0.98 0.005 240);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 240);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.65 0.20 250);
+}
+
+.dark {
+  --background: oklch(0.18 0.08 260);
+  --foreground: oklch(0.98 0.005 240);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@layer utilities {
+  .bg-mesh {
+    background:
+      radial-gradient(at 20% 20%, oklch(0.35 0.18 250 / 0.45) 0px, transparent 50%),
+      radial-gradient(at 80% 10%, oklch(0.55 0.22 240 / 0.35) 0px, transparent 50%),
+      radial-gradient(at 70% 80%, oklch(0.40 0.20 260 / 0.4) 0px, transparent 50%),
+      var(--navy-deep);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, oklch(0.78 0.18 235) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glow {
+    box-shadow: 0 0 0 1px oklch(0.65 0.20 250 / 0.4), 0 10px 40px -10px oklch(0.65 0.20 250 / 0.6);
+  }
+  .glow:hover {
+    box-shadow: 0 0 0 1px oklch(0.78 0.18 235 / 0.6), 0 15px 50px -10px oklch(0.65 0.20 250 / 0.9);
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(oklch(0.65 0.20 250 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.65 0.20 250 / 0.08) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
