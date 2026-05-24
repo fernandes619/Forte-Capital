@@ -13,15 +13,40 @@ export function LeadForm() {
   const [loading, setLoading] = useState(false);
   const [phone, setPhone] = useState("");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+  
+    const formData = new FormData(e.target as HTMLFormElement);
+    
+    formData.append("access_key", "fd382ffd-456b-4bc2-81a1-65c6845af024");
+  
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        toast.success("Recebemos seu cadastro!", { 
+          description: "Um especialista da Forte Capital entrará em contato em breve." 
+        });
+        (e.target as HTMLFormElement).reset();
+        setPhone("");
+      } else {
+        toast.error("Erro ao enviar", { 
+          description: data.message || "Por favor, tente novamente mais tarde." 
+        });
+      }
+    } catch (error) {
+      toast.error("Erro de conexão", { 
+        description: "Não foi possível conectar ao servidor de envio." 
+      });
+    } finally {
       setLoading(false);
-      toast.success("Recebemos seu cadastro!", { description: "Um especialista da Forte Capital entrará em contato em breve." });
-      (e.target as HTMLFormElement).reset();
-      setPhone("");
-    }, 800);
+    }
   };
 
   return (
