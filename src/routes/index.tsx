@@ -2,8 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
-import { Differentials } from "@/components/landing/Differentials";
-import { Services } from "@/components/landing/Services";
+import { Rentabilidades } from "@/components/landing/Rentabilidades";
+import { PontaAPonta } from "@/components/landing/PontaAPonta";
+import { Planos } from "@/components/landing/Planos";
 import { About } from "@/components/landing/About";
 import { LeadForm } from "@/components/landing/LeadForm";
 import { Footer } from "@/components/landing/Footer";
@@ -12,16 +13,16 @@ import { WhatsAppFloat } from "@/components/landing/WhatsAppFloat";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Forte Capital — Transformando sonhos em conquistas reais" },
+      { title: "Forte Capital — Alavancagem patrimonial e investimentos estratégicos" },
       {
         name: "description",
         content:
-          "Investimentos estratégicos, consórcios inteligentes e planejamento patrimonial para você e sua empresa crescerem com segurança.",
+          "Ecossistema financeiro focado em construir, proteger e expandir patrimônio com soluções personalizadas, consórcios e planejamento estratégico.",
       },
-      { property: "og:title", content: "Forte Capital — Soluções Financeiras & Consórcios" },
+      { property: "og:title", content: "Forte Capital — Alavancagem Patrimonial" },
       {
         property: "og:description",
-        content: "Estratégia, consórcios e planejamento patrimonial premium para pessoas e empresas.",
+        content: "Cuidamos da construção do seu patrimônio de ponta a ponta.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -35,8 +36,9 @@ function Index() {
       <Header />
       <main>
         <Hero />
-        <Differentials />
-        <Services />
+        <Rentabilidades />
+        <PontaAPonta />
+        <Planos />
         <About />
         <LeadForm />
       </main>
