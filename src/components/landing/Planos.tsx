@@ -3,24 +3,24 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
-    name: "Starter",
-    patrimony: "R$ 1.750.000,00",
-    income: "R$ 9.140,00",
-    monthly: "R$ 2.090,00",
+    name: "Started",
+    patrimony: "R$ 300.000,00",
+    //income: "R$ 9.140,00",
+    monthly: "R$ 800,00",
     featured: false,
   },
   {
-    name: "Investor",
-    patrimony: "R$ 3.000.000,00",
-    income: "R$ 16.080,00",
-    monthly: "R$ 3.480,00",
+    name: "Platinum",
+    patrimony: "R$ 500.000,00",
+    //income: "R$ 16.080,00",
+    monthly: "R$ 1.200,00",
     featured: true,
   },
   {
-    name: "Private",
-    patrimony: "R$ 4.000.000,00",
-    income: "R$ 21.440,00",
-    monthly: "R$ 4.640,00",
+    name: "Gold",
+    patrimony: "R$ 1.000.000,00",
+    //income: "R$ 21.440,00",
+    monthly: "R$ 2.200,00",
     featured: false,
   },
 ];
@@ -74,7 +74,7 @@ export function Planos() {
               </div>
 
               <ul className="mt-6 space-y-5 text-sm flex-1">
-                <li className="flex items-start gap-3">
+                {/* <li className="flex items-start gap-3">
                   <span className="mt-0.5 h-5 w-5 rounded-full bg-primary/20 grid place-items-center shrink-0">
                     <Check className="h-3 w-3 text-primary" />
                   </span>
@@ -82,7 +82,7 @@ export function Planos() {
                     <p className="text-white/70">Gere uma renda passiva de:</p>
                     <p className="text-white font-semibold mt-0.5">{p.income}</p>
                   </div>
-                </li>
+                </li> */}
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 h-5 w-5 rounded-full bg-primary/20 grid place-items-center shrink-0">
                     <Check className="h-3 w-3 text-primary" />
